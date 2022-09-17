@@ -3,15 +3,15 @@ import { useState } from "react";
 import { motion , AnimatePresence } from "framer-motion"
 import ipad from '../media/ipad.png'
 import Image from "next/image";
-// import Air from '../media/airh1.mp4'
+
 
 
 const Hero = () => {
     return (
         <>
             <div className="relative h-[100vh] bg-black flex justify-center items-center">
-                <div>
-                    
+                <div className="absolute">
+                    <video src={"/airh1.mp4"} autoPlay muted playsInline /> 
                 </div>
                 <div className="w-auto h-auto">
                     <AnimatePresence>
@@ -26,7 +26,7 @@ const Hero = () => {
                         times: [0, 0.2, 0.5, 0.8, 1],
                         repeat: 0,
                         repeatDelay: 1
-                      }}
+                    }}
                     exit={{ opacity: 0 }}
                 >
                     <Image 
@@ -38,6 +38,8 @@ const Hero = () => {
                     
                 </div>
                 {/* <source src={Air} type="video/mp4"/> */}
+               
+                
             </div>
         </>
     )
