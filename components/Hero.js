@@ -14,27 +14,27 @@ const Hero = () => {
                     <video src={"/airh1.mp4"} autoPlay muted playsInline /> 
                 </div>
                 <div className="w-auto h-auto">
-                    <AnimatePresence>
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    onViewportLeave = {{opacity : 0}}
-                    viewport={{ once: true }}
-                    transition={{
-                        duration: 4,
-                        ease: "easeInOut",
-                        times: [0, 0.2, 0.5, 0.8, 1],
-                        repeat: 0,
-                        repeatDelay: 1
-                    }}
-                    exit={{ opacity: 0 }}
-                >
+                <AnimatePresence>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        onViewportLeave = {{opacity : 0}}
+                        viewport={{ once: true }}
+                        transition={{
+                            duration: 2,
+                            ease: "easeInOut",
+                            times: [0, 0.2, 0.5, 0.8, 1],
+                            repeat: 0,
+                            repeatDelay: 1
+                        }}
+                        exit={{ opacity: 0 }}
+                    >
                     <Image 
                         src={ipad}
                         alt = {'ipad'}
                     />
                     </motion.div>
-                    </AnimatePresence>
+                </AnimatePresence>
                     
                 </div>
                 {/* <source src={Air} type="video/mp4"/> */}
