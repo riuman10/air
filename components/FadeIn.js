@@ -1,31 +1,28 @@
-import { useAnimation, motion } from "framer-motion";
+import { useAnimation, motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
 
-const FadeVarients = {
-    visible : {opacity : 1 , transition : { duration : 1 , delay : 0.3,  repeatType : 'loop' } , ease : 'easeOut'},
-    hidden : {opacity : 0 }
-}
-
 const FadeIn = ({title}) => {
-    const controls = useAnimation();
-    const [ref, inView] = useInView();
-    useEffect(() => {
-        if (inView) {
-        controls.start("visible");
-        }
-    }, [controls, inView]);
     return (
+        <AnimatePresence>
         <motion.div
-        ref={ref}
-        animate={controls}
-        variants = {FadeVarients}
-        style = 'style'
-        initial="hidden"
+        initial = {{opacity : 0}}
+        whileInView={{ opacity: 1}}
+        viewport={{ once: false , amount : 1 }}
+        exit = {{opacity : 0 }}
+        transition={{
+            duration: 1.3,
+            ease: "easeInOut",
+            // times: [0, 0.2, 0.5, 0.8, 1],
+            repeat: 0,
+            repeatDelay: 1
+        }}
         >
             <p className="text-white text-7xl">{title}</p>
         </motion.div>
+        </AnimatePresence>
+        
     )
 }
 

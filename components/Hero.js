@@ -10,12 +10,13 @@ const Hero = () => {
     return (
         <>
             <div className="relative h-[100vh] bg-black flex justify-center items-center">
+                
                 <AnimatePresence>
                 <motion.div 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: false , amount : 1 }}
-                exit={{ opacity: 0 , rotateX : -200 }}
+                exit={{ opacity: 0 }}
                 className="absolute"
                 >
                     <video src={"/airh1.mp4"} autoPlay muted playsInline /> 
@@ -28,13 +29,13 @@ const Hero = () => {
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: false , amount : 1 }}
                         transition={{
-                            duration: 2,
+                            duration: 1.3,
                             ease: "easeInOut",
-                            times: [0, 0.2, 0.5, 0.8, 1],
+                            //times: [0, 0.2, 0.5, 0.8, 1],
                             repeat: 0,
                             repeatDelay: 1
                         }}
-                        exit={{ opacity: 0 , rotateX : 200 }}
+                        exit={{ opacity: 0 , duration : 0 }}
                     >
                     <Image 
                         src={ipad}
